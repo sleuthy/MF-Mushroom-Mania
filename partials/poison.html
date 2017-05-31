@@ -1,7 +1,10 @@
 <section>
 
     <h2>Poisonous Mushrooms</h2>
-    <div ng-repeat="item in mushrooms">
+    <div>
+        <input type="text" ng-model="query" placeholder="search"/>
+    </div>
+    <div ng-repeat="item in mushrooms | filter: query">
         <div ng-show="{{ !item.edible }}" ng-hide="{{ item.edible }}">
               <a href="#!/item/{{ item.id }}">{{ item.name }}</a>
               <ul>
@@ -9,5 +12,4 @@
               </ul>
         </div>
     </div>
-
 </section>
